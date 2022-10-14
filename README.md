@@ -1,1 +1,1 @@
-# capstone1
+A sample site for Capstone 1 volunteering.
