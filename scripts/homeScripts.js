@@ -15,7 +15,7 @@ let state;
 function displayParks(selector) {
     let stateResults = nationalParksArray.filter(park => park.State === state);
     const ul = document.querySelector(selector);
-    ul.innerHTML = ''; // beyond the scope, but this may cause memory leaks
+    ul.innerHTML = ''; // beyond the scope
     stateResults.forEach(park => {
         ul.innerHTML += `<li>${park.LocationName}</li>`;
     });
@@ -33,3 +33,4 @@ statesDropdown.addEventListener('hide.bs.dropdown', event => {
 
 
 populateDropdown('#statesDropdown .dropdown-menu', locationsArray);
+populateDropdown('#parkTypesDropdown .dropdown-menu', parkTypesArray);
