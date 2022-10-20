@@ -1,10 +1,17 @@
 
-function populateDropdown(items) {
-    const div = document.querySelector('.dropdown-menu');
+// populates the bootstrap drop-down at selector
+// with the passed-in array, items
+function populateDropdown(selector, items) {
+    //const ul = document.querySelector('.dropdown-menu');
+    const ul = document.querySelector(selector);
     items.forEach(item => {
-        // <li><a class="dropdown-item" href="#">state 1 </a></li>
-        div.innerHTML += `<li><a class="dropdown-item" href="#">${item}</a></li>`;
+        ul.innerHTML += `<li><a class="dropdown-item" href="#">${item}</a></li>`;
     });
 }
 
-populateDropdown(locationsArray);
+const statesDropdown = document.getElementById('statesDropdown');
+statesDropdown.addEventListener('hide.bs.dropdown', event => {
+  console.log(event.clickEvent.target.innerHTML);
+});
+
+populateDropdown('#statesDropdown .dropdown-menu', locationsArray);
