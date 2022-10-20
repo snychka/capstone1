@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+- based loosely on https://getbootstrap.com/docs/5.2/getting-started/introduction/#quick-start
+    - downloaded from https://getbootstrap.com/docs/5.2/getting-started/download/#compiled-css-and-js
+-->
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home page</title>
+    <!-- fixed link type issue as per validation from w3.org -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!-- fixed 404 by using
+      - https://stackoverflow.com/questions/48956465/favicon-standard-2022-svg-ico-png-and-dimensions
+      - https://realfavicongenerator.net/
+    -->
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+
+          <!-- will be populated by homeScript.js -->
+          <div id="statesDropdown" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              States 
+            </button>
+            <ul class="dropdown-menu">
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-sm">
+          <!-- will be populated by homeScript.js -->
+          <div id="parkTypesDropdown" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Park Types
+            </button>
+            <ul class="dropdown-menu">
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <!-- selected parks will appear here! -->
+        <div>
+          <h1>Chosen parks</h1>
+          <h2>State: <span id="state">(non-chosen)</span></h2>
+          <h2>Park Type: <span id="parktype">(non-chosen)</span></h2>
+        </div>
+        <div>
+          <ul id="parks">
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <script src="js/bootstrap.bundle.js"  crossorigin="anonymous"></script>
+    <script src="scripts/locationData.js"  crossorigin="anonymous"></script>
+    <script src="scripts/mountainData.js"  crossorigin="anonymous"></script>
+    <script src="scripts/nationalParkData.js"  crossorigin="anonymous"></script>
+    <script src="scripts/parkTypeData.js"  crossorigin="anonymous"></script>
+    <script src="scripts/parksScript.js"  crossorigin="anonymous"></script>
+  </body>
+</html>
