@@ -39,4 +39,7 @@ function displayParks() {
 populateDropdown(statesList, locationsArray);
 populateDropdown(parkTypesList, parkTypesArray);
 
-
+window.onload = function () {
+    statesList.onchange = displayParks;
+    parkTypesList.onchange = displayParks;
+}

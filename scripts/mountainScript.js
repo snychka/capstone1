@@ -31,3 +31,7 @@ function displayMountain() {
 }
 
 populateDropdown(mountainList, mountainsArray.map(mount => mount.name).sort());
+
+window.onload = function () {
+    mountainList.onchange = displayMountain;
+}
