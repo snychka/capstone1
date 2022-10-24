@@ -13,10 +13,10 @@ let parkTypesList = document.getElementById('parkTypesList');
 let parks = document.getElementById('parks');
 
 // https://stackoverflow.com/questions/42853028/removing-li-from-ul-in-for-loop-js
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild#simple_examples
 function clearList(ul) {
-    const length = ul.children.length;
-    for (let i = 0; i < length; i++) {
-        ul.removeChild(ul.children[0]);
+    while(ul.firstChild) {
+        ul.removeChild(ul.firstChild);
     }
 }
 
