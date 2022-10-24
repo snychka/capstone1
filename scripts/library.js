@@ -6,7 +6,3 @@ function populateDropdown(element, items) {
         element.appendChild(new Option(item, item))
     });
 }
-
-let mountainsList = document.getElementById('mountainsList');
-
-populateDropdown(mountainsList, mountainsArray.map(mount => mount.name).sort());
