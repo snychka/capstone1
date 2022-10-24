@@ -8,7 +8,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Great Outdoors</title>
+  <title>Mountains</title>
+
   <!-- fixed link type issue as per validation from w3.org -->
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <!-- fixed 404 by using
@@ -23,20 +24,32 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <a href="nationalParks.html">National Parks</a>
-      </div>
 
-      <div class="col-sm">
-        <a href="mountains.html">Mountains</a>
+        <!-- will be populated by parksScript.js -->
+        <select name="mountainsList" id="mountainsList" onchange="displayMountains();">
+          <option value="">Select a mountain</option>
+        </select>
+
       </div>
 
     </div>
 
+    <div class="row">
+      <!-- selected parks will appear here! -->
+      <h1>Chosen mountains:</h1>
+    </div>
+    <div>
+      <ul id="mountains">
+      </ul>
+    </div>
   </div>
 
-
+  </div>
 
   <script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
+  <script src="scripts/mountainData.js" crossorigin="anonymous"></script>
+  <script src="scripts/library.js" crossorigin="anonymous"></script>
+  <script src="scripts/mountainScript.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
