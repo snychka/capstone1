@@ -23,14 +23,16 @@
         <div class="col-sm">
 
           <!-- will be populated by parksScript.js -->
-          <select name="statesList" id="statesList" onchange="">
+          <select name="statesList" id="statesList" onchange="displayParks();">
+            <option value="">Select a state</option>
           </select>
 
         </div>
 
         <div class="col-sm">
           <!-- will be populated by parksScript.js -->
-          <select name="parkTypesList" id="parkTypesList" onchange="">
+          <select name="parkTypesList" id="parkTypesList" onchange="displayParks();">
+            <option value="">Select a park type</option>
           </select>
         </div>
 
@@ -38,7 +40,6 @@
 
       <div class="row">
         <!-- selected parks will appear here! -->
-        <div>
           <h1>Chosen parks</h1>
           <h2>State: <span id="state">(non-chosen)</span></h2>
           <h2>Park Type: <span id="parktype">(non-chosen)</span></h2>
