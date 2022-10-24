@@ -1,19 +1,33 @@
 
 
-let mountainsList = document.getElementById('mountainsList');
-let moutains = document.getElementById('mountains');
+let mountainList = document.getElementById('mountainList');
+let mountain = document.getElementById('mountain');
+
+function addListItem(ul, prefix, value) {
+    const li = document.createElement("li");
+    const text = document.createTextNode(
+        `${prefix}: ${value}`);
+    li.appendChild(text);
+    ul.appendChild(li);
+}
 
 function displayMountain() {
 
-    clearList(mountains);
-    let chosenMountain = mountainsList.value;
+    clearList(mountain);
+    let chosenMountain = mountainList.value;
     let result = mountainsArray.find(mountain => mountain.name === chosenMountain);
 
-    const li = document.createElement("li");
+
+    addListItem(mountain, "Name", result.name);
+    addListItem(mountain, "Description", result.desc);
+    addListItem(mountain, "Elevation", result.elevation);
+    /*
+    const description = document.createElement("li");
     const text = document.createTextNode(
         `Name: ${result.name}`);
-    li.appendChild(text);
-    moutains.appendChild(li);
+    name.appendChild(text);
+    moutains.appendChild(name);
+    */
 }
 
-populateDropdown(mountainsList, mountainsArray.map(mount => mount.name).sort());
+populateDropdown(mountainList, mountainsArray.map(mount => mount.name).sort());
