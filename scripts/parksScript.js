@@ -1,13 +1,14 @@
 
 // populates the bootstrap drop-down at selector
 // with the passed-in array, items
-function populateDropdown(selector, items) {
-    const ul = document.querySelector(selector);
+function populateDropdown(id, items) {
+    const element = document.getElementById(id);
     items.forEach(item => {
-        ul.innerHTML += `<li><a class="dropdown-item" href="#">${item}</a></li>`;
+        element.appendChild(new Option(item, item))
     });
 }
 
+/*
 let state, parkType;
 
 function setState(val) {
@@ -62,7 +63,8 @@ parkTypesDropdown.addEventListener('hide.bs.dropdown', event => {
     setParkType(event.clickEvent.target.innerHTML);
     displayParks('#parks');
 });
+*/
 
 
-populateDropdown('#statesDropdown .dropdown-menu', locationsArray);
-populateDropdown('#parkTypesDropdown .dropdown-menu', parkTypesArray);
+populateDropdown('statesList', locationsArray);
+populateDropdown('parkTypesList', parkTypesArray);
