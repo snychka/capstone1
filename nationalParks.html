@@ -51,17 +51,37 @@
     <div class="row">
       <div class="col-sm">
 
-        <!-- will be populated by parksScript.js -->
-        <select name="statesList" id="statesList">
-          <option value="">Select a state</option>
-        </select>
+        <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#data_representation_of_a_radio_group-->
+        <form>
+          <fieldset>
+            <legend>Filter by feature :</legend>
+            <div>
+              <div>
+                <input type="radio" id="states" name="feature" value="states">
+                <label for="states">States (will re-populate drop-down)</label>
+              </div>
+
+              <div>
+                <input type="radio" id="types" name="feature" value="types">
+                <label for="types">Types (will re-populate drop-down)</label>
+              </div>
+
+              <div>
+                <input type="radio" id="all" name="feature" value="all">
+                <label for="types">No filter (all parks will be shown)</label>
+              </div>
+
+            </div>
+          </fieldset>
+        </form>
+
 
       </div>
 
       <div class="col-sm">
         <!-- will be populated by parksScript.js -->
-        <select name="parkTypesList" id="parkTypesList">
-          <option value="">Select a park type</option>
+        <select name="list" id="list">
+          <option value="">(No items to select)</option>
         </select>
       </div>
 

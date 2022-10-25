@@ -1,6 +1,5 @@
 
-let statesList = document.getElementById('statesList');
-let parkTypesList = document.getElementById('parkTypesList');
+let list = document.getElementById('list');
 let parks = document.getElementById('parks');
 
 
@@ -35,11 +34,19 @@ function displayParks() {
 
 }
 
+function displayAll() {
+    //tbd!
+}
 
-populateDropdown(statesList, locationsArray);
-populateDropdown(parkTypesList, parkTypesArray);
+
+function populateWithStates() { populateDropdown(list, locationsArray); }
+function populateWithTypes() { populateDropdown(list, parkTypesArray); }
+
 
 window.onload = function () {
-    statesList.onchange = displayParks;
-    parkTypesList.onchange = displayParks;
+    // list.onchange = 
+    states.onclick = populateWithStates;
+    types.onclick = populateWithTypes;
+    all.onclick = displayAll;
+
 }
