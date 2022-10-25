@@ -1,6 +1,8 @@
 
 let list = document.getElementById('list');
 let parks = document.getElementById('parks');
+let states = document.getElementById('states');
+let types = document.getElementById('types');
 
 
 // displays the parks in parks.
@@ -77,6 +79,13 @@ function displayAll() {
     displayParks(nationalParksArray);
 }
 
+function getParksByType() {
+    let type = list.value;
+    if (type.length === 0) { return []; }
+    typeResults = nationalParksArray.filter(park => park.LocationName.includes(type));
+    return typeResults;
+}
+
 function getParksByState() {
     let state = list.value;
     stateResults = nationalParksArray.filter(park => park.State === state);
@@ -86,16 +95,20 @@ function getParksByState() {
 function displayParksByState() {
     displayParks(getParksByState());
 }
+function displayParksByType() {
+    displayParks(getParksByType());
+}
 
 
 function filterParks() {
-    displayParksByState();
+    states.checked ? displayParksByState() : displayParksByType();
 }
 
 function populateWithStates() { populateDropdown(list, locationsArray); }
 function populateWithTypes() { populateDropdown(list, parkTypesArray); }
 
 
+// yikes! worked sans getElementById!?!
 window.onload = function () {
     list.onchange = filterParks;
     states.onclick = populateWithStates;
