@@ -14,6 +14,15 @@ function addListItem(ul, prefix, value) {
     return li;
 }
 
+// function that can "fetch" the sunrise/sunset times
+// from the spec
+async function getSunsetForMountain(lat, lng) {
+    let response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`);
+    let data = await response.json();
+    return data;
+}
+
+
 function displayMountain() {
 
     clearList(mountain);
@@ -26,10 +35,18 @@ function displayMountain() {
 
     const imgNode = addListItem(mountain, "Image", "");
 
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image#examples
     imgNode.appendChild(document.createElement("br"));
     const img = new Image(335, 220);
     img.src = "assets/" + result.img;
     imgNode.appendChild(img);
+
+
+    // Fetch the sunset/sunrise times for a specific mountain
+    // based on the spec
+    getSunsetForMountain(result.coords.lat, result.coords.lng).then(data => {
+        addListItem(mountain, "Sunrise/sunset (UTC)", `${data.results.sunrise}/${data.results.sunset}`);
+    });
 
 }
 
