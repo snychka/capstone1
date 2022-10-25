@@ -4,7 +4,7 @@ let parks = document.getElementById('parks');
 
 
 // displays the parks in parks.
-function displayParks() {
+function displayParksOd() {
     clearList(parks);
     let state = statesList.value;
     let stateResults = [];
@@ -34,8 +34,38 @@ function displayParks() {
 
 }
 
+// https://stackoverflow.com/questions/18333427/how-to-insert-a-row-in-an-html-table-body-in-javascript
+//
+// adds selectedParks to a table
+function displayParks(selectedParks) {
+
+    function addCell(row, value) {
+        const cell = row.insertCell();
+        cell.appendChild(document.createTextNode(value))
+    }
+
+    selectedParks.forEach(park => {
+        const row = parks.insertRow();
+
+        addCell(row, park.LocationName);
+    });
+
+
+}
+/*
+    LocationName: "Acadia National Park",
+    Address
+    City: "Bar Harbor",
+    State: "Maine",
+    Phone: "(207) 288-3338",
+    Visit: "https://www.nps.gov/acad/index.htm",
+
+*/
+
+
 function displayAll() {
-    //tbd!
+    clearDropDown(list);
+    displayParks(nationalParksArray);
 }
 
 
