@@ -39,6 +39,8 @@ function displayParksOd() {
 // adds selectedParks to a table
 function displayParks(selectedParks) {
 
+    parks.innerHTML = "";
+
     function addCell(row, child) {
         const cell = row.insertCell();
         cell.appendChild(child);
@@ -75,13 +77,27 @@ function displayAll() {
     displayParks(nationalParksArray);
 }
 
+function getParksByState() {
+    let state = list.value;
+    stateResults = nationalParksArray.filter(park => park.State === state);
+    return stateResults;
+}
+
+function displayParksByState() {
+    displayParks(getParksByState());
+}
+
+
+function filterParks() {
+    displayParksByState();
+}
 
 function populateWithStates() { populateDropdown(list, locationsArray); }
 function populateWithTypes() { populateDropdown(list, parkTypesArray); }
 
 
 window.onload = function () {
-    // list.onchange = 
+    list.onchange = filterParks;
     states.onclick = populateWithStates;
     types.onclick = populateWithTypes;
     all.onclick = displayAll;
