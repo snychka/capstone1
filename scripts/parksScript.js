@@ -39,20 +39,32 @@ function displayParksOd() {
 // adds selectedParks to a table
 function displayParks(selectedParks) {
 
-    function addCell(row, value) {
+    function addCell(row, child) {
         const cell = row.insertCell();
-        cell.appendChild(document.createTextNode(value))
+        cell.appendChild(child);
+    }
+
+    function addTextCell(row, text) { addCell(row, document.createTextNode(text)); }
+
+    // https://stackoverflow.com/questions/4772774/how-do-i-create-a-link-using-javascript
+    // https://stackoverflow.com/questions/804256/how-do-i-add-target-blank-to-a-link-within-a-specified-div
+    function addLinkCell(row, link, linkText) {
+        let a = document.createElement('a');
+        a.appendChild(document.createTextNode(linkText));
+        a.setAttribute("target", "blank");
+        a.href = link;
+        addCell(row, a);
     }
 
     selectedParks.forEach(park => {
         const row = parks.insertRow();
 
-        addCell(row, park.LocationName);
-        addCell(row, park.Address);
-        addCell(row, park.City);
-        addCell(row, park.State);
-        addCell(row, park.Phone);
-        addCell(row, park.Visit);
+        addTextCell(row, park.LocationName);
+        addTextCell(row, park.Address);
+        addTextCell(row, park.City);
+        addTextCell(row, park.State);
+        addTextCell(row, park.Phone);
+        park.Visit ? addLinkCell(row, park.Visit, "Click for more details!") : addTextCell(row, "No further details")
     });
 
 
