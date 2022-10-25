@@ -48,20 +48,15 @@ function displayParks(selectedParks) {
         const row = parks.insertRow();
 
         addCell(row, park.LocationName);
+        addCell(row, park.Address);
+        addCell(row, park.City);
+        addCell(row, park.State);
+        addCell(row, park.Phone);
+        addCell(row, park.Visit);
     });
 
 
 }
-/*
-    LocationName: "Acadia National Park",
-    Address
-    City: "Bar Harbor",
-    State: "Maine",
-    Phone: "(207) 288-3338",
-    Visit: "https://www.nps.gov/acad/index.htm",
-
-*/
-
 
 function displayAll() {
     clearDropDown(list);
