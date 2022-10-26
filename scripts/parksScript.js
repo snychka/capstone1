@@ -1,3 +1,4 @@
+"use strict";
 
 let list = document.getElementById('list');
 let parks = document.getElementById('parks');
@@ -82,13 +83,13 @@ function displayAll() {
 function getParksByType() {
     let type = list.value;
     if (type.length === 0) { return []; }
-    typeResults = nationalParksArray.filter(park => park.LocationName.includes(type));
+    let typeResults = nationalParksArray.filter(park => park.LocationName.includes(type));
     return typeResults;
 }
 
 function getParksByState() {
     let state = list.value;
-    stateResults = nationalParksArray.filter(park => park.State === state);
+    let stateResults = nationalParksArray.filter(park => park.State === state);
     return stateResults;
 }
 

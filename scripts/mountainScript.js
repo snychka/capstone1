@@ -1,4 +1,4 @@
-
+"use strict";
 
 let mountainList = document.getElementById('mountainList');
 let mountain = document.getElementById('mountain');

@@ -1,3 +1,4 @@
+"use strict";
 
 // populates the dropdown element
 // with the passed-in array, items.
