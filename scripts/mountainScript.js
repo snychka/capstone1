@@ -23,6 +23,7 @@ async function getSunsetForMountain(lat, lng) {
 }
 
 
+//async function displayMountain() {
 function displayMountain() {
 
     clearList(mountain);
@@ -47,6 +48,12 @@ function displayMountain() {
     getSunsetForMountain(result.coords.lat, result.coords.lng).then(data => {
         addListItem(mountain, "Sunrise/sunset (UTC)", `${data.results.sunrise}/${data.results.sunset}`);
     });
+
+    // below is async await -- no then -- way to deal with promises.
+    // also need to make this displayMountain func async, since using await.
+    //
+    //let data = await getSunsetForMountain(result.coords.lat, result.coords.lng);
+    //addListItem(mountain, "Sunrise/sunset (UTC)", `${data.results.sunrise}/${data.results.sunset}`);
 
 }
 
