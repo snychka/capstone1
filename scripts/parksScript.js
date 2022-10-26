@@ -5,38 +5,6 @@ let parks = document.getElementById('parks');
 let states = document.getElementById('states');
 let types = document.getElementById('types');
 
-
-// displays the parks in parks.
-function displayParksOd() {
-    clearList(parks);
-    let state = statesList.value;
-    let stateResults = [];
-    if (state.length > 0) {
-        stateResults = nationalParksArray.filter(park => park.State === state);
-    }
-
-    let parkType = parkTypesList.value;
-    let typeResults = [];
-    if (parkType.length > 0) {
-        typeResults = nationalParksArray.filter(park => park.LocationName.includes(parkType));
-    }
-
-    let results = [];
-    if (stateResults.length > 0 && typeResults.length > 0) {
-        results = Array.from(new Set(stateResults.filter(item => typeResults.includes(item))));
-    } else {
-        results = stateResults.length > 0 ? stateResults : typeResults;
-    }
-
-    results.forEach(park => {
-        const li = document.createElement("li");
-        const text = document.createTextNode(`${park.LocationName}`);
-        li.appendChild(text);
-        parks.appendChild(li);
-    });
-
-}
-
 // https://stackoverflow.com/questions/18333427/how-to-insert-a-row-in-an-html-table-body-in-javascript
 //
 // adds selectedParks to a table
