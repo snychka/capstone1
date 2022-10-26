@@ -7,7 +7,7 @@ function populateDropdown(element, items) {
     clearElement(element);
     element.appendChild(new Option("Make a selection", ""));
     items.forEach(item => {
-        element.appendChild(new Option(item, item))
+        element.appendChild(new Option(item, item));
     });
 }
 
